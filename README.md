@@ -5,8 +5,9 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://github.com/user-attachments/assets/45b7ab80-02c5-4b40-a9e2-b6426e5967df" alt="Background Removal Tool" width="400">
+    <img src="https://github.com/user-attachments/assets/70ebe13f-0577-477f-a27a-ecd592e683b2" alt="Background Removal Tool" height="400">
   </a>
+
 
 </div>
 
