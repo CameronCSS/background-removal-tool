@@ -239,7 +239,7 @@
           const url = window.URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = `${file.name.split('.')[0]}_nobg.${file.name.split('.').pop()}`;
+          a.download = `${file.name.split('.')[0]}_NO_BG.${file.name.split('.').pop()}`;
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
