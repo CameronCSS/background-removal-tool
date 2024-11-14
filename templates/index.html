@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>✂️ rmbg</title>
+    <title>✂️ Remove BG</title>
     <style>
       body {
         height: 100vh;
@@ -26,8 +26,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
         background-color: white;
         position: relative;
       }
@@ -81,6 +79,22 @@
         color: #666;
         font-size: 0.9em;
       }
+
+      .upload-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #2196F3;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .upload-button:hover {
+        background-color: #1976D2;
+      }
     </style>
   </head>
   <body>
@@ -88,7 +102,8 @@
       <div id="dropZone" class="drop-zone">
         <div class="icon">✂️</div>
         <h1>Image Background Removal</h1>
-        <p>Drop an image here or click anywhere to upload</p>
+        <p>Drop an image here or paste from clipboard (Ctrl+V)</p>
+        <button class="upload-button" onclick="fileInput.click()">Upload File</button>
         <div class="supported-formats">
           Supported formats: PNG, JPEG, WebP
         </div>
@@ -167,6 +182,20 @@
         }
       }
 
+      // Add clipboard paste handling
+      document.addEventListener('paste', async (e) => {
+        e.preventDefault();
+        const items = e.clipboardData.items;
+
+        for (const item of items) {
+          if (item.type.startsWith('image/')) {
+            const file = item.getAsFile();
+            processImage(file);
+            break;
+          }
+        }
+      });
+
       // Add event listeners with capture phase
       dropZone.addEventListener('dragenter', handleDragEnter, true);
       dropZone.addEventListener('dragover', handleDragOver, true);
@@ -228,11 +257,6 @@
           dropZone.classList.remove('processing');
         }
       }
-
-      // Handle click to upload
-      dropZone.addEventListener('click', () => {
-        fileInput.click();
-      });
 
       fileInput.addEventListener('change', () => {
         if (fileInput.files.length > 0) {
