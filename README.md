@@ -13,7 +13,7 @@
 
 # ✂️ Background Removal Tool
 
-A simple tool that removes backgrounds from images using the rembg library. Built with Flask and modern web technologies, it features a drag-and-drop interface, clipboard paste support, and instant downloads.
+A simple tool that removes backgrounds from images using the rembg library. Built with Flask and deployed on Docker.
 
 [TRY IT OUT](https://bg.camdoesdata.com)
 
