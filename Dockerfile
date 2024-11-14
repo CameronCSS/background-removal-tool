@@ -1,7 +1,6 @@
 FROM python:3.10
 
-# Downlaod This locally https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx
-# copy model to avoid unnecessary download
+# Copy model into the container
 COPY u2net.onnx /home/.u2net/u2net.onnx
 
 WORKDIR /bgrm
